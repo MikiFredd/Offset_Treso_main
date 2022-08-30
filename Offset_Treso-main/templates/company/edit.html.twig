@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Company{% endblock %}
+
+{% block body %}
+
+<div class="page-wrapper">
+    <div class="container-xl">
+        <!-- Titre de la page -->
+        <div class="page-header d-print-none">
+            <div class="row g-2 align-items-center">
+                <div class="col">
+                    <h2 class="page-title">Sociétés</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-xl">
+        <div class="row row-cards">
+            <div class="col-12">
+                <div class="card">
+                    <!-- Entête de notre formulaire -->
+                    <div class="card-header">
+                        <h3>Fiche de modification société</h3>
+                    </div>
+
+                    <!-- Corps de notre formulaire -->
+                    <div class="card-body">
+                        {{ include('company/_edit_form.html.twig') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,116 @@
+{# FORMULAIRE D'ENREGISTREMENT D'UNE SOCIETE #}
+
+
+{{ form_start(form) }}
+
+<div class="row">
+    <div class="col-xl-4">
+        <div class="row">
+            <div class="col-md-4 col-xl-12">
+                <div class="form-group mt-3 mb-3 row">
+                    <label for="" class="col-4 col-form-label required">Année de déb Act :</label>
+                    <div class="col">
+                        {{ form_widget(form.Annee_debut_activ) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4">
+        <div class="row">
+            <div class="col-md-4 col-xl-12">
+                <div class="form-group mt-3 mb-3 row">
+                    <label for="" class="col-4 col-form-label required">Gérant :</label>
+                    <div class="col">
+                        {{ form_widget(form.Gerant) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4">
+        <div class="row">
+            <div class="col-md-4 col-xl-12">
+                <div class="form-group mt-3 mb-3 row">
+                    <label for="" class="col-4 col-form-label required">Capital social :</label>
+                    <div class="col">
+                        {{ form_widget(form.Capital_social) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group mb-4   row">
+            <label for="" class="col-3 col-form-label required">Nom De Sociétés :</label>
+            <div class="col">
+                {{ form_widget(form.CompanyName) }}
+            </div>
+        </div>
+        <div class="form-group mb-4   row">
+            <label for="" class="col-3 col-form-label required"> Forme :</label>
+            <div class="col">
+                {{ form_widget(form.Forme) }}
+            </div>
+        </div>
+        <div class="form-group mb-4   row">
+            <label for="" class="col-3 col-form-label required">Activités :</label>
+            <div class="col">
+                {{ form_widget(form.Activities) }}
+            </div>
+        </div>
+        <div class="form-group mb-4  row">
+            <label for="" class="col-3 col-form-label required">N° Registre CC :</label>
+            <div class="col">
+                {{ form_widget(form.Numero_RCC) }}
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group mb-4 row">
+            <label for="" class="col-3 col-form-label required">Numéro CC :</label>
+            <div class="col">
+                {{ form_widget(form.Numero_CC) }}
+            </div>
+        </div>
+        <div class="form-group mb-4 row">
+            <label for="" class="col-3 col-form-label required"> Telephone :</label>
+            <div class="col">
+                {{ form_widget(form.Telephone) }}
+            </div>
+        </div>
+        <div class="form-group mb-4 row">
+            <label for="" class="col-3 col-form-label required">Siège social :</label>
+            <div class="col">
+                {{ form_widget(form.Siege_social) }}
+            </div>
+        </div>
+        <div class="form-group mb-4 row">
+            <label for="" class="col-3 col-form-label required">Adresse :</label>
+            <div class="col">
+                {{ form_widget(form.Adresse) }}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card-footer">
+    <button class="btn btn-warning float-end ms-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"></path>
+            <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"></path>
+        </svg>
+        {{ button_label|default('Modifier')}}
+    </button>
+    <a href="{{ path('app_company_index') }}" class="btn btn-azure  float-end">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-back" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M9 11l-4 4l4 4m-4 -4h11a4 4 0 0 0 0 -8h-1"></path>
+        </svg>
+        Retour
+    </a>
+</div>
+{{ form_end(form) }}

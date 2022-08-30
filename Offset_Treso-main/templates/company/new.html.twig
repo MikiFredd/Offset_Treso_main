@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Company{% endblock %}
+
+{% block body %}
+
+    <div class="row row-cards">
+        <div class="col-12">
+            <div class="card">
+                <!-- Entête de notre formulaire -->
+                <div class="card-header">
+                    <h3>Fiche d'enregistrement société</h3>
+                </div>
+
+                <!-- Corps de notre formulaire -->
+                <div class="card-body">
+                    {{ form_start(form, {'attr': {'class':'row g-3 needs-validation' }}
+                    ) }}
+                    {{ include('company/_form.html.twig') }}
+                    {{ form_end(form) }}
+                </div>
+
+                <!-- Pied de page de notre formulaire -->
+                <div class="card-footer">
+                    <a class="btn btn-blue float-end ms-2" href="{{ button_label|default('Ajouter') }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="24"
+                             height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none"
+                             stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"></path>
+                            <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"></path>
+                        </svg>
+                    </a>
+                    <a href="{{ path('app_company_index') }}" class="btn btn-azure  float-end">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-back"
+                             width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor"
+                             fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M9 11l-4 4l4 4m-4 -4h11a4 4 0 0 0 0 -8h-1"></path>
+                        </svg>
+                        Retour
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
