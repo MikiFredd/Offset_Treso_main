@@ -29,7 +29,7 @@ class CompanyController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            //dd($company);
+            dd($company);
             $companyRepository->add($company, true);
 
             return $this->redirectToRoute('app_company_index', [], Response::HTTP_SEE_OTHER);

@@ -15,12 +15,3 @@
     float: none;
 }
 
-.custom {
-    border-bottom: 3px solid yellow;
-    color: inherit;
-    background-color: darkblue;
-}
-
-legend{
-    border-bottom: 1px solid #b8cadf;
-}
