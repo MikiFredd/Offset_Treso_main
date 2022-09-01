@@ -24,9 +24,6 @@ class CashAccount
     #[ORM\Column(length: 255)]
     private ?string $num_cpte = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $code_journal = null;
-
     #[ORM\Column(nullable: true)]
     private ?int $solde_ouv = null;
 
@@ -44,6 +41,9 @@ class CashAccount
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $responsable = null;
+
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?Journal $code_journal = null;
 
     public function getId(): ?int
     {
@@ -70,18 +70,6 @@ class CashAccount
     public function setNumCpte(string $num_cpte): self
     {
         $this->num_cpte = $num_cpte;
-
-        return $this;
-    }
-
-    public function getCodeJournal(): ?string
-    {
-        return $this->code_journal;
-    }
-
-    public function setCodeJournal(?string $code_journal): self
-    {
-        $this->code_journal = $code_journal;
 
         return $this;
     }
@@ -154,6 +142,18 @@ class CashAccount
     public function setResponsable(?string $responsable): self
     {
         $this->responsable = $responsable;
+
+        return $this;
+    }
+
+    public function getCodeJournal(): ?Journal
+    {
+        return $this->code_journal;
+    }
+
+    public function setCodeJournal(?Journal $code_journal): self
+    {
+        $this->code_journal = $code_journal;
 
         return $this;
     }

@@ -1,15 +1,16 @@
 {% extends 'base.html.twig' %}
+
 {% block title %}
-    Company index
-    
+    CashAccount index
 {% endblock %}
+
 {% block body %}
     <div class="row row-cards">
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
                     <h2>
-                        Informations sur la société                    
+                        CashAccount index
                     </h2>
                 </div>
                 <div class="card-body">
@@ -18,91 +19,83 @@
                             <thead>
                                 <tr>
                                     <th>
+                                        Id
+                                    </th>
+                                    <th>
                                         Nom
-                                                                            
                                     </th>
                                     <th>
-                                        Forme
-                                                                            
+                                        Num_cpte
                                     </th>
                                     <th>
-                                        Activité
-                                                                            
+                                        Solde_ouv
                                     </th>
                                     <th>
-                                        N° Registre de Commerce et C
-                                                                            
+                                        Plafond
                                     </th>
                                     <th>
-                                        N° Compte Contribuable
-                                                                            
+                                        Solde_plancher
                                     </th>
                                     <th>
-                                        N° Telephone
-                                                                            
+                                        Caissier
                                     </th>
                                     <th>
-                                        Adresse
-                                                                            
+                                        Contact
                                     </th>
                                     <th>
-                                        Siege social
-                                                                            
+                                        Responsable
                                     </th>
                                     <th>
-                                        Capital social
-                                                                            
+                                        Created_at
                                     </th>
                                     <th>
-                                        Gerant
-                                                                            
+                                        Updated_at
                                     </th>
                                     <th>
-                                        Année de Debut d'Activité
-                                                                            
-                                    </th>
-                                    <th>
-                                        Actions
-                                                                            
+                                        actions
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for company in companies %}
+                                {% for cash_account in cash_accounts %}
                                     <tr>
                                         <td>
-                                            {{ company.CompanyName }}
+                                            {{ cash_account.id }}
                                         </td>
                                         <td>
-                                            {{ company.Forme }}
+                                            {{ cash_account.nom }}
                                         </td>
                                         <td>
-                                            {{ company.Activities }}
+                                            {{ cash_account.numCpte }}
                                         </td>
                                         <td>
-                                            {{ company.NumeroRCC }}
+                                            {{ cash_account.soldeOuv }}
                                         </td>
                                         <td>
-                                            {{ company.NumeroCC }}
+                                            {{ cash_account.plafond }}
                                         </td>
                                         <td>
-                                            {{ company.Telephone }}
+                                            {{ cash_account.soldePlancher }}
                                         </td>
                                         <td>
-                                            {{ company.Adresse }}
+                                            {{ cash_account.caissier }}
                                         </td>
                                         <td>
-                                            {{ company.SiegeSocial }}
+                                            {{ cash_account.contact }}
                                         </td>
                                         <td>
-                                            {{ company.CapitalSocial }}
+                                            {{ cash_account.responsable }}
                                         </td>
                                         <td>
-                                            {{ company.Gerant }}
+                                            {{ cash_account.createdAt ? cash_account.createdAt|date('Y-m-d H:i:s') : '' }}
                                         </td>
                                         <td>
-                                            {{ company.AnneeDebutActiv ? company.AnneeDebutActiv|date('Y-m-d') : '' }}
+                                            {{ cash_account.updatedAt ? cash_account.updatedAt|date('Y-m-d H:i:s') : '' }}
                                         </td>
+                                        {#<td>
+                                                            <a href="{{ path('app_cash_account_show', {'id': cash_account.id}) }}">show</a>
+                                                            <a href="{{ path('app_cash_account_edit', {'id': cash_account.id}) }}">edit</a>
+                                                        </td>#}
                                         <td>
                                             <a href="{{ path('app_company_show', {'id': company.id}) }}">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
@@ -118,35 +111,38 @@
                                             <div class="container-xl d-flex flex-column justify-content-center">
                                                 <div class="empty">
                                                     <div class="empty-img">
-                                                        <img src="{{ asset('images/illustrations/undraw_printing_invoices_5r4r.svg') }}" height="128" alt="">
-                                                    </div>
+                                                        <img src="{{ asset('images/illustrations/undraw_printing_invoices_5r4r.svg') }}" height="128" alt=""></div>
                                                         <p class="empty-title">
                                                             Aucun élément disponible
-                                                                                                            
+                                                                                                                                                                        
+                                                                                                                    
                                                         </p>
                                                         <p class="empty-subtitle text-muted">
                                                             Tableau vide. Essayez d'ajouter un nouvel élément.
-                                                                                                            
+                                                                                                                                                                        
+                                                                                                                    
                                                         </p>
+                                                    </div>
                                                 </div>
-                                            </div>
                                             </td>
-                                            </tr>    
-                                        {% endfor %}
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                {% if((companies | length) == 0 ) %}
-                    <div class="card-footer">
-                        <div class="mr-auto" style="float: right;">
-                            <a class="btn btn-ghost-primary active" href="{{ path('app_company_new') }}">
-                                Nouveau                        
-                            </a>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                {% endif %}
+                    {% if((cash_accounts | length) == 0 ) %}
+                        <div class="card-footer">
+                            <div class="mr-auto" style="float: right;">
+                                <a class="btn btn-ghost-primary active" href="{{ path('app_cash_account_new') }}">
+                                    Nouveau                        
+                                                                
+                                </a>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
             </div>
         </div>
-    </div>
-{% endblock %}
+    {% endblock %}
+    
