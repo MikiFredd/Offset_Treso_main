@@ -7,7 +7,7 @@
 
 
 .avatar{
-    color: yellow;
+    color: #fbf46a;
 }
 
 .col-center{
@@ -16,7 +16,7 @@
 }
 
 .custom {
-    border-bottom: 3px solid yellow;
+    border-bottom: 3px solid #fbf46a;
     color: inherit;
     background-color: darkblue;
 }
